@@ -20,7 +20,7 @@ const Navbar = () => {
           </p>
         </Link>
       </div>
-      <div className="flex items-center gap-6">
+      <div className="flex items-centegitr gap-6">
         <SearchBar />
         <Link href="/">
           <Home className="w-4 h-4 text-gray-600" />
