@@ -2,7 +2,7 @@
 
 import PaymentForm from "@/components/PaymentForm";
 import ShippingForm from "@/components/ShippingForm";
-import { CartTypes } from "@/types";
+import { CartTypes, ShippingFormInputs } from "@/types";
 import { ArrowRight, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -84,7 +84,7 @@ const CartPage = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
 
-  const [shippingForm, setShippingForm] = useState(null);
+  const [shippingForm, setShippingForm] = useState<ShippingFormInputs>();
 
   const activeStep = parseInt(searchParams.get("step") || "1"); //most important for conditions.. :P
 
