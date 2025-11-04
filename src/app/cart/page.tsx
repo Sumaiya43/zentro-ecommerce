@@ -81,6 +81,8 @@ const steps = [
   },
 ];
 
+const handleSetPaymentForm = () => {};
+
 const CartPage = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -127,7 +129,10 @@ const CartPage = () => {
         <div className="w-full lg:w-7/12 border-1 shadow-lg rounded-lg border-gray-100 flex flex-col gap-8 p-8">
           {activeStep === 1 ? (
             cart.map((item) => (
-              <div className="flex justify-between items-center" key={item.id + item.selectedColor + item.selectedSize}>
+              <div
+                className="flex justify-between items-center"
+                key={item.id + item.selectedColor + item.selectedSize}
+              >
                 {/* IMAGE AND DETAILS */}
                 <div className="flex gap-8">
                   {/* IMAGE */}
@@ -160,7 +165,10 @@ const CartPage = () => {
                   </div>
                 </div>
                 {/* DELETE BUTTON */}
-                <button onClick={()=>removeFromCart(item)} className="w-8 h-8 cursor-pointer  bg-red-300 hover:bg-red-400 transition-all duration-300 text-red-600 rounded-full flex items-center justify-center ">
+                <button
+                  onClick={() => removeFromCart(item)}
+                  className="w-8 h-8 cursor-pointer  bg-red-300 hover:bg-red-400 transition-all duration-300 text-red-600 rounded-full flex items-center justify-center "
+                >
                   <Trash2 className="w-3 h-3" />
                 </button>
               </div>
@@ -168,7 +176,7 @@ const CartPage = () => {
           ) : activeStep === 2 ? (
             <ShippingForm setShippingForm={setShippingForm} />
           ) : activeStep === 3 && shippingForm ? (
-            <PaymentForm />
+            <PaymentForm setPaymentForm={handleSetPaymentForm} />
           ) : (
             <p className="text-sm text-gray-500">
               Please fill in the shipping form to continue.
