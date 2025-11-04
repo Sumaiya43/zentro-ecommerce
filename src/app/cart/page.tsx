@@ -1,5 +1,6 @@
 "use client";
 
+import CartPageClient from "@/components/CartPageClient";
 import PaymentForm from "@/components/PaymentForm";
 import ShippingForm from "@/components/ShippingForm";
 import useCartStore from "@/stores/useCartStore";
@@ -7,7 +8,7 @@ import { CartTypes, ShippingFormInputs } from "@/types";
 import { ArrowRight, Trash2 } from "lucide-react";
 import Image from "next/image";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { Suspense, useState } from "react";
 
 // const cartItems: CartTypes = [
 //   {
@@ -95,6 +96,9 @@ const CartPage = () => {
 
   return (
     <div className="flex flex-col gap-8 items-center justify-center mt-12">
+      <Suspense fallback={<div className="p-6">Loading cart…</div>}>
+        <CartPageClient />
+      </Suspense>
       {/* TITLE */}
       <h1 className="text-2xl font-medium">Your Shopping Cart</h1>
       {/* STEPS */}
