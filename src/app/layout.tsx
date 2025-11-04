@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Zentro",
-  description: "E-commerce Webesite created by ",
+  title: "Zentro - Best CLothes",
+  description: "Best E-commerce Webesite created by Mazeda ",
 };
 
 export default function RootLayout({
