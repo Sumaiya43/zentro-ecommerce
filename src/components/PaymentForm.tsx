@@ -1,12 +1,12 @@
 import { PaymentFormInputs, PaymentFormSchema } from "@/types";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ArrowRight, ShoppingCart } from "lucide-react";
+import {  ShoppingCart } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 const PaymentForm = ({
-  setPaymentForm,
+  // setPaymentForm,
 }: {
   setPaymentForm: (data: PaymentFormInputs) => void;
 }) => {
@@ -20,7 +20,7 @@ const PaymentForm = ({
 
   const router = useRouter();
 
-  const handlePaymentForm: SubmitHandler<PaymentFormInputs> = (data) => {};
+  const handlePaymentForm: SubmitHandler<PaymentFormInputs> = () => {};
   return (
     <form
       className="flex flex-col gap-4"

@@ -3,7 +3,7 @@
 import useCartStore from "@/stores/useCartStore";
 import { ShoppingCart } from "lucide-react";
 import Link from "next/link";
-import { use } from "react";
+
 
 const ShoppingCartIcon = () => {
 

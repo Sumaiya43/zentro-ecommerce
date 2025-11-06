@@ -1,7 +1,7 @@
 import ProductInteraction from "@/components/ProductInteraction";
 import { ProductType } from "@/types";
+import { Metadata } from "next";
 import Image from "next/image";
-import { describe } from "node:test";
 
 const product: ProductType = {
   id: 1,
@@ -20,22 +20,18 @@ const product: ProductType = {
   },
 };
 
-export const generateMetaData = async ({
-  params,
-}: {
-  params: { id: string };
-}) => {
+export async function generateMetadata(): Promise<Metadata> {
   return {
     title: product.name,
-    describe: product.description,
+    description: product.description,
   };
-};
+}
 
 const ProductPage = async ({
   params,
   searchParams,
 }: {
-  params: Promise<{ id: string }>;
+  params: Promise<{id:string}>;
   searchParams: Promise<{ size: string; color: string }>;
 }) => {
   const { size, color } = await searchParams;
@@ -70,10 +66,10 @@ const ProductPage = async ({
           <Image src="/stripe.png" alt="" width={50} height={25} />
         </div>
         <p className="text-gray-500 text-sm">
-          By clicking Pay Now, you agree to our{""}{" "}
+          By clicking Pay Now, you agree to our
           <span className="underline hover:text-black">
             Terms and Conditions
-          </span>{" "}
+          </span>
           and <span className="underline hover:text-black">Privacy Policy</span>
         </p>
       </div>
