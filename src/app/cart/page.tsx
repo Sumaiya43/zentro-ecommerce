@@ -232,9 +232,11 @@ function CartPageContent() {
 }
 
 const CartPage = () => {
-  <Suspense fallback={<div>Loading cart...</div>}>
-    <CartPageContent />
-  </Suspense>;
+  return (
+    <Suspense fallback={<div>Loading cart...</div>}>
+      <CartPageContent />
+    </Suspense>
+  );
 };
 
 export default CartPage;
